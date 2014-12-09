@@ -3,13 +3,14 @@
 <head>
 <title>Testing xlink:href preload scanning</title>
 <script>
-var image = getElementsByTagName("image");
-image.xlink:href = "http://i.imgur.com/Cjwl2C9.png";
+var img = getElementById("img");
+img.setAttribute("xlink:href", "http://i.imgur.com/Cjwl2C9.png");
+img.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "http://i.imgur.com/Cjwl2C9.png");
 </script>
 </head>
 <body>
 <svg viewBox="0 0 723 240" style="width: 723px; height: 240px;">
-<image xlink:href="http://i.imgur.com/UTWJvfp.png" / height="240" width="723">
+<image id="img" xlink:href="http://i.imgur.com/UTWJvfp.png" / height="240" width="723">
 </svg>
 </body>
 </html>
