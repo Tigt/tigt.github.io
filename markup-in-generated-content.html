@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Abusing SVG's &gt;foreignObject&lt; for HTML in pseudo-elements</title>
+
+<style>
+p:before {
+  content: url("/img/foreignObject.svg");
+}
+</style>
+</head>
+<body>
+<p>I'm a regular old paragraph!</p>
+</body>
+</html>
