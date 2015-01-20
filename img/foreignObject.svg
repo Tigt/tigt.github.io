@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 200">
+    <foreignObject height="200" width="300">
+        <p>Hey, check me out! I'm a paragraph tag inside generated content!</p>
+        <ul>
+            <li>Lists!</li>
+            <li>Hooray!</li>
+        </ul>
+    </foreignObject>
+</svg>
