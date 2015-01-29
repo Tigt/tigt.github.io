@@ -78,6 +78,25 @@ I'm going to have to see what works in my particular implementation, because the
 3. Vertically and horizontally center it when it's restricted by one of those maximum lengths.
 4. Also do this for the PNG fallback, in older browsers.
 
+##Hiding text from browsers that don't support SVG
+
+The stuff you dump in the `<text>` and `<desc>` elements will be the only things that show up in a browser that doesn't support SVG. `<title>` doesn't, since they'll think it's a bogus page title that you don't know how to use correctly.
+
+This was an intentional feature (at least they'll see *something*), but if that behavior is undesirable, you can do this:
+
+```css
+text,
+desc {
+  height: 0;
+  width: 0;
+}
+```
+The SVG renderer doesn't support these CSS properties, but HTML sure does!
+
+For older IE versions, you *could* shiv `<text>` and `<desc>`, which would work everywhere except when JavaScript fails. The only other idea I have is either using the CSS child combinator (`blah > bloo`) along with `text-indent` or some similar old hack, which would work [almost everywhere](http://caniuse.com/#feat=css-sel2).
+
+There could also be something with conditional comments (`<!--[if lt IE 9]><div class="oldie"><![endif]-->`), which would work deeper at the cost of being ridiculous.
+
 #SVG `<text>` and friends
 
 ##Positioning text
