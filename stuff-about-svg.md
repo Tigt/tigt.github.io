@@ -116,6 +116,8 @@ text a {
 
 This is, of course, ugly. Underlines also don't work so great in word balloons, so something else may be necessary. Unfortunately, SVG doesn't supported the generated content pseudo-elements (you know, `:before` and `:after`), so appending an icon isn't easily done.
 
+I'll need to research that all browsers implement `cursor: pointer` as well, but I'm pretty sure they do.
+
 ##Other text formatting
 
 Aside from the SVG `<a>` element, the only other text-level element we get is `<tspan>`, which is just a generic inline container. As a result, it's heavily used.
