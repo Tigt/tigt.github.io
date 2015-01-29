@@ -26,7 +26,7 @@ svg {overflow: hidden}
 
 Most code examples and how-tos claim you can just copy and paste the entire SVG file right into your markup. Which looks like this:
 
-```xml
+```svg
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Basic//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-basic.dtd">
 <svg version="1.1" baseProfile="basic" id="svg2" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="900px" height="900px" viewBox="0 0 900 900" xml:space="preserve">
@@ -36,7 +36,7 @@ Most code examples and how-tos claim you can just copy and paste the entire SVG 
 
 Here's what you actually need:
 
-```html
+```svg
 <svg viewBox="0 0 900 900">
 </svg>
 ```
@@ -50,6 +50,18 @@ This is because the HTML5 parsing algorithm:
 Additionally, the `x`, `y`, `width`, and `height` attributes don't accomplish anything. `width` and `height` *can* be useful, but only when you're setting them to static pixel lengths. Considering SVG's fluid nature, that's not very common.
 
 The `viewBox`, however, is vital. More on that later.
+
+##Self-closing tags
+
+HTML5 inline SVG actually does support splitting and combining tags XML-style, like this:
+
+```svg
+<path d="whatever"/>
+<!-- is equivalent to... -->
+<path d="whatever"></path>
+```
+
+This is only useful for two things: [preventing more DOM errors in old IE](http://stuntbox.com/blog/2013/06/bulletproof-inline-svg/) and adding the `<title>` and `<desc>` elements to any arbitrary element, such as `<image>`.
 
 ##Getting SVG to actually scale nicely holy balls why is it this hard
 
@@ -65,3 +77,26 @@ I'm going to have to see what works in my particular implementation, because the
 2. Apply a `max-width` and `max-height` that it shouldn't get any larger than (for the raster images that can't scale up)
 3. Vertically and horizontally center it when it's restricted by one of those maximum lengths.
 4. Also do this for the PNG fallback, in older browsers.
+
+#SVG `<text>` and friends
+
+##Positioning text
+
+**Do not use `xml:space`.** It does nothing you'd want it to; it converts line breaks and tabs to spaces, then preserves *those.* (Also allegedly doesn't do anything in IE9 anyway.) Use `<tspan>` and other kosher SVG text/letter positioning methods.
+
+##Text links
+
+There aren't any default styles for wrapping an `<a xlink:href>` around text (or indeed anything else), so here's a reasonable default:
+
+```css
+text a {
+  color: blue;
+  text-decoration: underline;
+}
+```
+
+This is, of course, ugly. Underlines also don't work so great in word balloons, so something else may be necessary. Unfortunately, SVG doesn't supported the generated content pseudo-elements (you know, `:before` and `:after`), so appending an icon isn't easily done.
+
+##Other text formatting
+
+Aside from the SVG `<a>` element, the only other text-level element we get is `<tspan>`, which is just a generic inline container. As a result, it's heavily used.
