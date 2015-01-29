@@ -60,6 +60,7 @@ You'd think **Scalable** Vector Graphics would fit right into responsive design,
 * [Make SVG Responsive](http://demosthenes.info/blog/744/Make-SVG-Responsive)
 
 I'm going to have to see what works in my particular implementation, because the current requirements are
+
 1. Make the SVG as big as possible, but no bigger that the screen allows (`size: contain` kinda)
 2. Apply a `max-width` and `max-height` that it shouldn't get any larger than (for the raster images that can't scale up)
 3. Vertically and horizontally center it when it's restricted by one of those maximum lengths.
