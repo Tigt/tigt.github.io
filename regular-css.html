@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Async CSS with the media attribute</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="bogus">
+</head>
+<body>
+    <h1>Async CSS with the <code>media</code> attribute</h1>
+    
+    <ol>
+        <li>Put a stylesheet in the <code>&lt;head&gt;</code> with a bogus <code>media</code> attribute.</li>
+        <li>The browser begins downloading the stylesheet, but won't apply it to the page.</li>
+        <li>Have an identical <code>&lt;link rel="stylesheet"&gt;</code> at the bottom of the HTML, except with a correct <code>media</code> (or none at all).</li>
+        <li>In theory, the browser will start downloading the CSS file early, but only apply it to the screen when it comes across the second, valid <code>&lt;link&gt;</code>. If the networking code in the browser is good, it should just apply the currently downloading file instead of making a new request.</li>
+    </ol>
+    
+    <h2>Possible problems</h2>
+    
+    <ul>
+        <li>Might block rendering entirely with the bottom stylesheet.</li>
+        <li>Older browsers block on stylesheets with non-matching <code>media</code>.</li>
+        <li>Even if this works perfectly, it delays JavaScript execution. The browser has to finish the CSS download in order to construct the CSSOM before it starts executing scripts.</li>
+        <li>These are the murky waters of "unspecified behavior;" things are likely to run afoul in all sorts of edge cases.</li>
+    </ul>
+    
+    <h2>Other weird things to try</h2>
+    
+    <ul>
+        <li>Chrome has <code>&lt;link rel="subresource"&gt;</code> which is exactly the behavior we want.</li>
+        <li>Other hacky ways of grabbing a file and populating the cache: <code>&lt;img src="styles.css"&gt;</code>, <code>&lt;object data="styles.css"&gt;</code></li>
+        <li>Bend someone's ear about making something like <code>&lt;link re="stylesheet" async&gt;</code> or something.</li>
+    </ul>
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+</body>
+</html>
