@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Putting the “Web” into Webcomics</title>
+<meta name="description" content="Webcomics are enormous, inaccessible bitmaps that don't fit into an increasingly mobile and pixel-dense world. But they don't have to be.">
+
+<style>
+
+  html,
+  body,
+  main,
+  #panelset {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  article {
+    overflow: hidden;
+    height: inherit;
+  }
+  
+  section, header, footer {
+    height: inherit;
+    position: relative;
+  }
+
+  .comic-svg { /* http://jsfiddle.net/danield770/8VJ38/3/  http://stackoverflow.com/questions/20590239/maintain-aspect-ratio-of-div-but-fill-screen-width-and-height-in-css */
+    width: 100vw; 
+    height: 56.25vw; /* 100/56.25 = 1.778 */ /* https://github.com/rodneyrehm/viewport-units-buggyfill */
+    max-height: 100%;
+    max-width: 177.78vh; /* 16/9 = 1.778 */
+    margin: auto;
+    position: absolute;
+    top:  0; bottom: 0; /* vertical center */
+    left: 0; right:  0; /* horizontal center */
+    /* pseudocode
+    .viewportRatio(@x, @y) {
+    width: 100vw;
+    height: @y * 100vw / @x;
+    max-width: @x / @y * 100vh;
+    max-height: 100vh;
+  }
+    */
+  }
+
+</style>
+
+</head><body>
+
+<main class="viewer">
+  <article class="comic">
+
+    <section class="panelset" id="part1">
+      <svg viewBox="0 0 X Y" class="panelset-svg">
+        <title role="heading" aria-level="2">Heading 1</title>
+        
+        <g class="panel">
+          <switch>
+            <!--Fallback for IE9-11, since they don't support foreignObject. Apparently there's a bug where the fallback content doesn't resize without a refresh, but I'm not worried about that.-->
+
+            <foreignObject width="X" height="Y" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+              <img src="image.png" srcset="image2.png 200, image3.png 300, etc.">
+            </foreignObject>
+
+            <image width="X" height="Y" class="art" id="p1-a1" xlink:href="default-p1-a1.png" />
+
+          </switch>
+
+          <g class="word-balloon" id="p1-b1">
+            <path class="outline" />
+            <text>
+              <tspan id="p1-b1-t1">Dialogue</tspan>
+              <tspan id="p1-b1-t2">More Dialogue</tspan>
+            </text>
+          </g>
+        </g>
+
+      </svg>
+      <a class="next-link" href="#part2">Next</a>
+    </section>
+
+    <section class="panelset" id="part2">
+      <a class="prev-link" href="#part1">Previous</a>
+      
+      <svg viewBox="0 0 X Y">
+        <image class="art" id="p2-a1" xlink:href="default-p2-a1.png" />
+        <g class="word-balloon" id="p2-b1">
+          <path class="outline" />
+          <text>
+            <tspan id="p2-b1-t1">Dialogue</tspan>
+          </text>
+        </g>
+      </svg>
+      
+      <a class="next-link" href="#part3">Next</a>
+    </section>
+
+  </article>
+</main>
+
+</body></html>
