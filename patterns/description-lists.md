@@ -22,6 +22,28 @@ dt { font-weight: bold }
 dd { margin-left: 2em }
 ```
 
+## Bulleted
+
+```html
+<dl class="bulleted">
+  <dt></dt>
+  <dd></dd>
+  
+  <dt></dt>
+  <dd></dd>
+  
+  <dt></dt>
+  <dd></dd>
+  <dd></dd>
+</dl>
+```
+
+```css
+dl.bulleted > dt {
+  display: list-item;
+}
+```
+
 ## Numbered
 
 ```html
@@ -41,7 +63,7 @@ dd { margin-left: 2em }
 ```css
 dl.numbered { counter-reset: dl }
 
-.numbered > dt::before {
+dl.numbered > dt::before {
   counter-increment: dl;
   content: counter(dl) ". ";
 }
