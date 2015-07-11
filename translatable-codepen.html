@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+
+    <title>CodePen - Putting the “Web” into Webcomics</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <style>
+      html,
+      body,
+      main,
+      #panelset {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+      }
+
+      article {
+        overflow: hidden;
+        height: inherit;
+      }
+
+      section, header, footer {
+        height: inherit;
+        position: relative;
+      }
+
+      .comic-svg { /* http://jsfiddle.net/danield770/8VJ38/3/  http://stackoverflow.com/questions/20590239/maintain-aspect-ratio-of-div-but-fill-screen-width-and-height-in-css */
+
+        /* Sigh. This works beautifully, but breaks zooming. Can flexbox do this? */
+        width: 100vw;
+        height: 158.23vw;
+        max-height: 90vh;
+        max-width: 63.19vh;
+        margin: auto;
+        position: absolute;
+        top:  0; bottom: 0; /* vertical center */
+        left: 0; right:  0; /* horizontal center */
+        /* pseudocode
+        .viewportRatio(@x, @y) { 1044/165200
+        width: 100vw;
+        height: @y * 100vw / @x;
+        max-width: @x / @y * 100vh;
+        max-height: 100vh;
+      }
+        */
+      }
+      .next-link, .prev-link {
+        position: absolute;
+        display: block;
+        bottom: 0;
+        width: 50%;
+        height: 5vh;
+        text-align: center;
+        z-index: 9;
+      }
+
+      .next-link {
+        right: 0;
+      }
+
+      .prev-link {
+        left: 0;
+      }
+
+      .title, .callout {
+        text-align: center;
+        text-anchor: middle;
+        font: 200px Bangers, sans-serif;
+      }
+
+      .callout {
+        font-size: 144px;
+      }
+
+      .callout.small {
+        font-size: 100px;
+      }
+
+      .real-text {
+        font: 144px "Fredericka the Great", serif;
+      }
+
+      .speech-balloon > path {
+        stroke-width: 7;
+        fill: #fff;
+        stroke: #000;
+      }
+
+      .speech-balloon > text {
+        font: 120px "Shadows Into Light", sans-serif;
+        text-align: center;
+      }
+
+      .speech-balloon.small > text {
+        font-size: 72px;
+      }
+
+      .starburst-text {
+        font: 144px Bangers, sans-serif;
+        text-align: center;
+        line-height: 85%;
+        fill: #fff;
+        text-anchor: middle;
+      }
+
+      .visible-style {
+        display: block;
+        white-space: pre;
+        font: 3.5em monospace;
+      }
+
+      #egg {
+        cursor: pointer;
+      }
+
+      #egg > text {
+        font: 144px sans-serif;
+        fill: #ddd;
+      }
+
+    </style>
+
+
+
+
+  </head>
+
+  <body>
+
+    <link href="http://fonts.googleapis.com/css?family=Shadows+Into+Light|Bangers" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Fredericka+the+Great&amp;text=Realtx!" rel="stylesheet">
+    <main class="viewer">
+      <article class="comic">
+        <header class="panelset" id="part1">
+          <svg class="comic-svg" width="1044" height="1652" viewBox="0 0 1044 1652">
+            <text class="title" role="heading" aria-level="1">
+              <tspan x="507" y="439">Putting</tspan>
+              <tspan x="507" y="600">the “Web” in</tspan>
+              <tspan x="507" y="761">Webcomics</tspan>
+            </text>
+            <image xlink:href="http://s3-us-west-2.amazonaws.com/s.cdpn.io/183091/Resized_panel_1.png" x="305" y="1020" width="478" height="632"/>
+          </svg>
+
+          <a class="next-link" href="#part2">Next</a>
+        </header>
+
+        <section class="panelset" id="part2">
+          <a class="prev-link" href="#part1">Previous</a>
+
+          <svg viewBox="0 0 1044 1652" width="1044" height="1652" class="comic-svg">
+            <g transform="translate(0,600)"> <!-- inkscape has a fetish for these transforms I'm so sorry -->
+              <g transform="matrix(0.71074437,0.12532341,-0.12867929,0.72977655,325.1018,35.331629)">
+                <path d="m 982.73623,741.36243 -2.54746,29.48561 22.06933,19.71895 -10.09213,27.82158 16.21363,24.759 -16.94893,24.26156 9.25313,28.11176 -22.65083,19.04816 1.66195,29.54875 -26.80902,12.53664 -6.04246,28.97205 -29.14025,5.17078 -13.33509,26.42093 -29.48561,-2.5474 -19.71895,22.0693 -27.82158,-10.0921 -24.759,16.2136 -24.26156,-16.9489 -28.11177,9.2531 -19.04815,-22.6508 -29.54875,1.6619 -12.53664,-26.80901 -28.97205,-6.04246 -5.17078,-29.14025 -26.42095,-13.33508 2.54746,-29.48562 -22.0693,-19.71895 10.09209,-27.82158 -16.21367,-24.759 16.94898,-24.26156 -9.25311,-28.11176 22.65081,-19.04815 -1.66195,-29.54876 26.80902,-12.53664 6.04246,-28.97205 29.14025,-5.17078 13.33508,-26.42095 29.48562,2.54746 19.71895,-22.0693 27.82158,10.0921 24.759,-16.21367 24.26156,16.94897 28.11176,-9.2531 19.04815,22.6508 29.54876,-1.66195 12.53664,26.80902 28.97205,6.04246 5.17078,29.14025 z" transform="translate(0,-600)"/>
+                <text class="starburst-text">
+                  <tspan x="802" y="239">WEB</tspan>
+                  <tspan x="802" y="361">1.0!</tspan>
+                </text>
+              </g>
+              <image xlink:href="http://s3-us-west-2.amazonaws.com/s.cdpn.io/183091/Resized_panel_2.png" x="189" y="426" width="531" height="625"/>
+
+              <path d="m 75.233396,-352.87501 c 589.328284,-294.66414 780.546494,28.21252 780.546494,28.21252" id="path1" fill="none"/>
+
+              <text class="real-text" x="14" y="-410" role="heading" aria-level="2">
+                <textPath xlink:href="#path1">
+                  Real text!
+                </textPath>
+              </text>
+
+              <g class="speech-balloon">
+                <path d="m 786.375,-455.45032 c -168.06962,0 -304.3125,51.23447 -304.3125,114.4375 0,15.13475 7.83969,29.58938 22.03125,42.8125 l -31.40625,26.34375 c -44.11729,-9.12017 -95.26535,-14.34375 -149.8125,-14.34375 -166.20103,0 -300.9375,48.42071 -300.9375,108.15625 0,59.73554 134.73647,108.1875 300.9375,108.1875 62.17682,0 119.94383,-6.75884 167.90625,-18.375 l 23.09375,23.09375 c -50.20722,20.80004 -81.28125,49.58725 -81.28125,81.40625 0,24.34204 18.194,46.89298 49.21875,65.46875 l -50.84375,50.84375 c -23.80687,-1.45254 -48.47222,-2.21875 -73.78125,-2.21875 -195.73332,0 -354.40625,45.68453 -354.40625,102.0625 0,37.50928 70.248817,70.28451 174.90625,88.03125 50.24892,56.21089 94.26397,74.75013 157.71875,90.84375 -33.66935,-20.5301 -66.37421,-42.02506 -73,-80.46875 30.16991,2.40664 61.9525,3.6875 94.78125,3.6875 195.73332,0 354.40625,-45.71578 354.40625,-102.09375 0,-40.86471 -83.39572,-76.09767 -203.8125,-92.40625 l 32.65625,-32.65625 c 46.52292,14.89498 104.77074,23.75 168,23.75 152.35094,0 275.875,-51.41251 275.875,-114.84375 0,-63.43124 -123.52406,-114.84375 -275.875,-114.84375 -47.83814,0 -92.81186,5.04906 -132.03125,13.96875 L 552.75,-108.26282 c 44.32231,-18.84407 71.0625,-43.17873 71.0625,-69.78125 0,-29.95894 -33.90464,-57.06902 -88.65625,-76.65625 l 16.1875,-13.59375 c 55.81414,25.49095 140.369,41.71875 235.03125,41.71875 168.06962,0 304.3125,-51.23447 304.3125,-114.4375 0,-63.20303 -136.24288,-114.4375 -304.3125,-114.4375 z" class="speech-balloon"/>
+
+                <text>
+                  <tspan x="558" y="-296">Selectable!</tspan>
+                  <tspan x="75" y="-129">Searchable!</tspan>
+                  <tspan x="489" y="68">Accessible!</tspan>
+                  <tspan x="63" y="275">Translatable!</tspan>
+                </text>
+              </g>
+            </g>
+          </svg>
+
+          <a class="next-link" href="#part3">Next</a>
+        </section>
+
+        <section class="panelset" id="part3">
+          <a class="prev-link" href="#part2">Previous</a>
+
+          <svg width="1044" height="1652" viewBox="0 0 1044 1652" class="comic-svg">
+            <g transform="translate(0,599.63782)">
+
+              <image xlink:href="http://s3-us-west-2.amazonaws.com/s.cdpn.io/183091/Resized_panel_3.png" x="3" y="-586" width="415" height="351"/>
+
+              <rect width="522.5" height="665" x="-5" y="388" fill="#999999"/>
+
+              <rect width="522.5" height="665" x="-1" y="-274" fill="#f1f1f1"/>
+
+              <g class="speech-balloon">
+                <path d="M 722.0625,14.75 C 524.66422,14.75 364.625,56.947903 364.625,109 c 0,10.70724 6.77526,21.00205 19.25,30.59375 L 325.84375,171.3125 416.375,157.875 c 62.68712,27.20476 176.14488,45.375 305.6875,45.375 197.39828,0 357.4063,-42.1979 357.4063,-94.25 0,-52.052097 -160.00802,-94.25 -357.4063,-94.25 z" transform="translate(0,-599.63782)"/>
+
+                <text x="406" y="-456" style="font-size:100px">
+                  Better graphics!
+                </text>
+              </g>
+
+              <rect width="522.5" height="665" x="521.29651" y="389.58133" id="rect2993-1" style="fill:#808080;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+
+              <rect width="522.5" height="665" x="521.29651" y="-273.84561" id="rect2993-6" style="fill:#cccccc;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+
+              <foreignObject width="473" height="467" x="555" y="557">
+                <style class="visible-style" contenteditable>#magnifying-glass {/*Edit me!*/
+                  fill: #000;
+                  stroke: none;
+                }</style>
+              </foreignObject>
+
+              <text x="792" y="510" class="small callout">Stylable</text>
+
+              <text x="792" y="-151" class="small callout">super crisp</text>
+
+              <text x="234" y="510" class="small callout">tiny filesize</text>
+
+              <text class="small callout">
+                <tspan x="242" y="-189">Better</tspan>
+                <tspan x="242" y="-89">animation</tspan>
+              </text>
+
+              <a xlink:href="http://s3-us-west-2.amazonaws.com/s.cdpn.io/183091/2014-12-17-Tickets-For-Two.png" id="a4956">
+                <image xlink:href="http://s3-us-west-2.amazonaws.com/s.cdpn.io/183091/2014-12-17-Tickets-For-Two.png" x="22" y="543" width="483" height="179"/>
+              </a>
+
+              <g transform="matrix(4.5543134,0,0,4.5543134,560.27351,-119.5091)" id="magnifying-glass">
+                <path d="M 59.67,74.223 C 40.167,74.223 24.3,58.357 24.3,38.855 24.3,19.353 40.167,3.486 59.67,3.486 c 19.5,0 35.367,15.866 35.367,35.369 0,19.501 -15.867,35.368 -35.367,35.368 z m 0,-64.362 c -15.988,0 -28.995,13.006 -28.995,28.993 0,15.987 13.007,28.993 28.995,28.993 15.985,0 28.991,-13.006 28.991,-28.993 C 88.661,22.868 75.655,9.861 59.67,9.861 z"/>
+
+                <path d="m 56.812,42.245 h -9.051 v -6.171 h 9.051 v -8.485 h 6.271 v 8.485 h 9.052 v 6.171 h -9.052 v 8.486 h -6.271 v -8.486 z"/>
+
+                <rect width="11" height="36" x="16" y="61" transform="matrix(0.7072,0.707,-0.707,0.7072,62.3881,8.0674)"/>
+              </g>
+
+              <text x="16" y="820" class="small callout">
+                <tspan x="250" y="820">64 kB &gt; 29 KB</tspan>
+              </text>
+
+              <a xlink:href="http://codepen.io/mileselam/pen/kprKm">
+                <text x="50" y="341" font-size="56px">
+                  thnx <tspan text-decoration="underline">@mileselam</tspan>
+                </text>
+              </a>
+
+              <svg width="335" height="335" x="82" y="-67" viewBox="0 0 335 335" fill="none" stroke="#000" stroke-linecap="round">
+                <defs>
+                  <path id="r1">
+                    <animate id="p1" attributeName="d" values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" dur="6s" repeatCount="indefinite"/>
+                    <animate attributeName="stroke-width" values="0;4;4;4;0" dur="6s" repeatCount="indefinite" begin="p1.begin"/>
+                  </path>
+                  <path id="r2">
+                    <animate attributeName="d" values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" dur="6s" repeatCount="indefinite" begin="p1.begin+1s"/>
+                    <animate attributeName="stroke-width" values="0;4;4;4;0" dur="6s" repeatCount="indefinite" begin="p1.begin+1s"/>
+                  </path>
+                  <path id="r3">
+                    <animate attributeName="d" values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" dur="6s" repeatCount="indefinite" begin="p1.begin+2s"/>
+                    <animate attributeName="stroke-width" values="0;4;4;4;0" dur="6s" repeatCount="indefinite" begin="p1.begin+2s"/>
+                  </path>
+                  <path id="r4">
+                    <animate id="p1" attributeName="d" values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" dur="6s" repeatCount="indefinite" begin="p1.begin+3s"/>
+                    <animate attributeName="stroke-width" values="0;4;4;4;0" dur="6s" repeatCount="indefinite" begin="p1.begin+3s"/>
+                  </path>
+                  <path id="r5">
+                    <animate attributeName="d" values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" dur="6s" repeatCount="indefinite" begin="p1.begin+4s"/>
+                    <animate attributeName="stroke-width" values="0;4;4;4;0" dur="6s" repeatCount="indefinite" begin="p1.begin+4s"/>
+                  </path>
+                  <path id="r6">
+                    <animate attributeName="d" values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0" dur="6s" repeatCount="indefinite" begin="p1.begin+5s"/>
+                    <animate attributeName="stroke-width" values="0;4;4;4;0" dur="6s" repeatCount="indefinite" begin="p1.begin+5s"/>
+                  </path>
+                </defs>
+                <use xlink:href="#r1"/>
+                <use xlink:href="#r1" transform="rotate(60 160 160)"/>
+                <use xlink:href="#r1" transform="rotate(120 160 160)"/>
+                <use xlink:href="#r1" transform="rotate(180 160 160)"/>
+                <use xlink:href="#r1" transform="rotate(240 160 160)"/>
+                <use xlink:href="#r1" transform="rotate(300 160 160)"/>
+                <use xlink:href="#r2" transform="rotate(30 160 160)"/>
+                <use xlink:href="#r2" transform="rotate(90 160 160)"/>
+                <use xlink:href="#r2" transform="rotate(150 160 160)"/>
+                <use xlink:href="#r2" transform="rotate(210 160 160)"/>
+                <use xlink:href="#r2" transform="rotate(270 160 160)"/>
+                <use xlink:href="#r2" transform="rotate(330 160 160)"/>
+                <use xlink:href="#r3"/>
+                <use xlink:href="#r3" transform="rotate(60 160 160)"/>
+                <use xlink:href="#r3" transform="rotate(120 160 160)"/>
+                <use xlink:href="#r3" transform="rotate(180 160 160)"/>
+                <use xlink:href="#r3" transform="rotate(240 160 160)"/>
+                <use xlink:href="#r3" transform="rotate(300 160 160)"/>
+                <use xlink:href="#r4" transform="rotate(30 160 160)"/>
+                <use xlink:href="#r4" transform="rotate(90 160 160)"/>
+                <use xlink:href="#r4" transform="rotate(150 160 160)"/>
+                <use xlink:href="#r4" transform="rotate(210 160 160)"/>
+                <use xlink:href="#r4" transform="rotate(270 160 160)"/>
+                <use xlink:href="#r4" transform="rotate(330 160 160)"/>
+                <use xlink:href="#r5"/>
+                <use xlink:href="#r5" transform="rotate(60 160 160)"/>
+                <use xlink:href="#r5" transform="rotate(120 160 160)"/>
+                <use xlink:href="#r5" transform="rotate(180 160 160)"/>
+                <use xlink:href="#r5" transform="rotate(240 160 160)"/>
+                <use xlink:href="#r5" transform="rotate(300 160 160)"/>
+                <use xlink:href="#r6" transform="rotate(30 160 160)"/>
+                <use xlink:href="#r6" transform="rotate(90 160 160)"/>
+                <use xlink:href="#r6" transform="rotate(150 160 160)"/>
+                <use xlink:href="#r6" transform="rotate(210 160 160)"/>
+                <use xlink:href="#r6" transform="rotate(270 160 160)"/>
+                <use xlink:href="#r6" transform="rotate(330 160 160)"/>
+              </svg>
+
+              <a xlink:href="http://s3-us-west-2.amazonaws.com/s.cdpn.io/183091/RobbieAndBobby-TicketsForTwo.svgz" transform="translate(0,301)">
+                <image xlink:href="http://s3-us-west-2.amazonaws.com/s.cdpn.io/183091/2014-12-17-Tickets-For-Two.png" x="22.151846" y="542.94666" width="482.76254" height="178.72485" id="image3838-9" />
+              </a>
+            </g>
+          </svg>
+
+
+          <a class="next-link" href="#part4">Next</a>
+        </section>
+
+        <section class="panelset" id="part4">
+          <a class="prev-link" href="#part3">Previous</a>
+
+          <svg width="1044" height="1652" class="comic-svg" viewBox="0 0 1044 1652">
+
+            <rect width="1045" height="479" x="-1" y="0" fill="#afafaf"/>
+
+            <rect width="1045" height="502" x="-1" y="479" fill="#dedede"/>
+
+            <image xlink:href="http://s3-us-west-2.amazonaws.com/s.cdpn.io/183091/Resized_panel_4.png" x="28" y="988" width="530" height="707"/>
+
+            <text class="callout">
+              <tspan x="786" y="272">INTERACT</tspan>
+            </text>
+
+            <svg width="500" height="400" x="29" y="35" id="boundingBox">
+              <text y="75" font-size="50px">Touch the box!</text>
+            </svg>
+
+            <text class="callout">
+              <tspan x="193" y="714">EASTER</tspan>
+              <tspan x="193" y="858">EGGS</tspan>
+            </text>
+
+            <image xlink:href="http://s3-us-west-2.amazonaws.com/s.cdpn.io/183091/bizarro-chris.png" x="410" y="636" width="617" height="197" opacity="0" id="easter"/>
+
+            <g role="button" id="egg" onclick="toggle()">
+              <path d="m 862.25164,756.49957 c 0,97.93489 -49.65258,148.5112 -116.37072,148.5112 -66.71814,0 -114.15413,-48.35973 -114.15413,-146.29462 0,-97.93489 84.68007,-197.23156 114.15413,-197.27607 26.81929,-0.0405 116.37072,97.1246 116.37072,195.05949 z" fill="#949494"/>
+              <text y="792" x="705">?</text>
+            </g>
+
+            <g class="speech-balloon small">
+              <path d="m 801.28125,1017.2812 c -136.31072,0 -246.8125,59.9041 -246.8125,133.7813 0,14.1862 4.10684,27.8579 11.65625,40.6875 -31.53416,34.855 -45.96558,34.1504 -112.84375,42.4375 55.39737,24.03 98.15946,12.5652 146.53125,-5.8437 44.71145,34.1837 118.27197,56.4687 201.46875,56.4687 136.31072,0 246.81255,-59.8728 246.81255,-133.75 0,-73.8772 -110.50183,-133.7813 -246.81255,-133.7813 z"/>
+
+              <text>
+                <tspan x="604.685" y="1133.3192">Anything a web</tspan>
+                <tspan x="604.685" y="1223.3192">page can do!</tspan>
+              </text>
+            </g>
+          </svg>
+
+          <a class="next-link" href="#part5">Next</a>
+        </section>
+
+        <section class="panelset" id="part5">
+          <a class="prev-link" href="#part4">Previous</a>
+
+          <svg width="1044" height="1652" viewBox="0 0 1044 1652" class="comic-svg">
+            <g transform="translate(0,600)">
+              <image xlink:href="http://s3-us-west-2.amazonaws.com/s.cdpn.io/183091/Resized_panel_5.png" x="306" y="446" width="492" height="605"/>
+
+              <g class="speech-balloon">
+                <path d="m 606.5625,43.875 c -227.66078,0 -412.21875,103.15858 -412.21875,230.40625 0,88.87824 90.06391,165.97616 221.9375,204.40625 L 373.9375,543 C 179.75693,553.90957 27.875,650.47446 27.875,768 c 0,87.11317 83.48002,162.7017 205.75,200.4375 C 318.83409,1097.2674 442,1162.9688 442,1162.9688 400.63626,1110.631 361.32274,1058.3073 348.84375,991.09375 c 20.12711,1.9302 40.76208,2.9375 61.8125,2.9375 211.40013,0 382.75,-101.19416 382.75,-226.03125 0,-104.8499 -120.88286,-193.01514 -284.84375,-218.5625 L 540,501.6875 c 21.66949,1.96652 43.89913,3 66.5625,3 227.66078,0 412.2187,-103.15858 412.2187,-230.40625 C 1018.7812,147.03358 834.22328,43.875 606.5625,43.875 z" transform="translate(0,-600)"/>
+
+                <text text-anchor="middle" role="heading" aria-level="2">
+                  <tspan x="606" y="-349">Thanks for</tspan>
+                  <tspan x="606" y="-205">indulging me.</tspan>
+                </text>
+
+                <text text-anchor="middle">
+                  <tspan x="403" y="137">Please do</tspan>
+                  <tspan x="403" y="281">view source.</tspan>
+                </text>
+              </g>
+            </g>
+          </svg>
+        </section>
+
+      </article>
+    </main>
+
+    <script src='//cdnjs.cloudflare.com/ajax/libs/svg.js/1.0.1/svg.min.js'></script>
+    <script src='https://s3-eu-west-1.amazonaws.com/svgjs/svg.easing.js'></script>
+
+    <script>
+      // https://github.com/rodneyrehm/viewport-units-buggyfill
+
+      var draw = SVG('boundingBox')
+
+      var rect = draw.rect(200,200).move(100,100)
+
+      rect.mouseover(function() {
+        this.animate(1000, SVG.easing.elastic)
+          .move(400 * Math.random(), 400 * Math.random())
+          .rotate(-45 + 90 * Math.random())
+      })
+
+      function toggle() {
+        document.getElementById('egg').setAttributeNS(null, 'display', 'none');
+        document.getElementById('easter').setAttributeNS(null, 'opacity', 1);
+      }
+      //@ sourceURL=pen.js
+    </script>
+
+
+
+
+  </body>
+</html>
