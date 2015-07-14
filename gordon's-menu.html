@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Gordon's Menu</title>
 
-<link href="http://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" rel="stylesheet">
 <style>
 	html {
@@ -31,9 +31,9 @@
 	}
 	
 	table {
-		  /*table-layout: fixed;*/
-		  width: 90%;
-		  margin: 0 auto;
+	  /*table-layout: fixed;*/
+	  width: 90%;
+	  margin: 0 auto;
 	}
 	
 	thead {
@@ -69,6 +69,134 @@
 <header>Chez Gordon</header>
 
 <p>Gordon can prepare any of these as an Extended Action if you ask him nicely and front the cash.</p>
+
+<section>
+	<h1>Tasty Snacks</h1>
+	<p>If you don't like the taste of these, you still get the effect, but you're also Enraged.</p>
+	<table><colgroup><col class="col1"><col class="col2"><col class="col3"></colgroup>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Salty Surprise</td>
+				<td>When hit by an attack, gain 5 temporary HP. If you like Salty, gain 10 instead.</td>
+				<td>100$</td>
+			</tr>
+			<tr>
+				<td>Spicy Wrap</td>
+				<td>When making a Physical attack, deal +5 damage for that attack. If you like Spicy, deal +10 instead.</td>
+				<td>100$</td>
+			</tr>
+			<tr>
+				<td>Sour Candy</td>
+				<td>When hit by a Physical attack, gain +5 DR against that attack. If you like Sour, gain +10 instead.</td>
+				<td>100$</td>
+			</tr>
+			<tr>
+				<td>Dry Wafer</td>
+				<td>When making a Special attack, deal +5 damage for that attack. If you like Dry, deal +10 instead.</td>
+				<td>100$</td>
+			</tr>
+			<tr>
+				<td>Bitter Treat</td>
+				<td>When hit by a Special attack, gain +5 DR against that attack. If you like Sour, gain +10 instead.</td>
+				<td>100$</td>
+			</tr>
+			<tr>
+				<td>Sweet Confection</td>
+				<td>Use at any time to gain +4 Evasion until the end of your next turn. If you like Sweet, also gain +4 Accuracy.</td>
+				<td>100$</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
+
+<section>
+	<h1>Tastes</h1>
+	<p>Gordon can add a Taste to any item he prepares. Tasty Snacks must have the same Taste as their basic flavor. As long as you don't dislike the Taste, you gain its effects alongside the main effect. It doesn't say, but I assume these effects last until the end of the Scene.</p>
+	<table><colgroup><col class="col1"><col class="col2"><col class="col3"></colgroup>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Salty</td>
+				<td>Gain 5 temporary HP. This stacks with other Chef features and Digestion Buffs.</td>
+			</tr>
+			<tr>
+				<td>Spicy</td>
+				<td>Increase Critical Hit Range by +1.</td>
+			</tr>
+			<tr>
+				<td>Sour</td>
+				<td>Increase Evasion against damaging attacks by +1.</td>
+			</tr>
+			<tr>
+				<td>Dry</td>
+				<td>Increase Effect Range by +1.</td>
+			</tr>
+			<tr>
+				<td>Bitter</td>
+				<td>+1 bonus to all Save Checks.</td>
+			</tr>
+			<tr>
+				<td>Sweet</td>
+				<td>Increase Initiative by +5.</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<h2>Complex Aftertaste</h2>
+	<p>Whenever you use a Digestion Buff that had a Taste, Gordon can spend 1 AP to give you a new Digestion Buff that acts the same as a Tasty Snack of the same taste.</p>
+</section>
+
+<section>
+	<h1>Sundries</h1>
+	<table><colgroup><col class="col1"><col class="col2"><col class="col3"></colgroup>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Candy Bar</td>
+				<td>Heals 5 HP <b>ZOWIE</b></td>
+				<td>50$</td>
+			</tr>
+			<tr>
+				<td>Baby Food</td>
+				<td>Increases a Pokemon's EXP gain by 20% for the day if they are level 15 or lower. Doesn't use Digestion Buffs, is consumed immediately.</td>
+				<td>50$</td>
+			</tr>
+			<tr>
+				<td>Preserves</td>
+				<td>Has the same effect as the ingredient used to make them. Produces 2 Preserves per Ingredient.</td>
+				<td>50$ and a Berry, Mushroom, or Herb</td>
+			</tr>
+			<tr>
+				<td>Hearty Meal</td>
+				<td>Up to 5 Trainers get +2 Max AP until the next Extended Rest. Doesn't stack, and loses potency if not consumed within 20 minutes.</td>
+				<td>2 Tiny Mushrooms, or a Big Mushroom, or a Balm Mushroom, or two of any White, Power, or Mental Herbs.</td>
+			</tr>
+			<tr>
+				<td>Dumplings</td>
+				<td>Dumplings has the same effect as the two items used to create it.</td>
+				<td>Either Leftovers, Preserves, or a Snack made with Chef, and then Leftovers or Preserves. The items must be different.</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
 
 <section>
 	<h1>Drugs</h1>
@@ -182,134 +310,6 @@
 				<td>MooMoo Milk</td>
 				<td>Heals 80 HP.</td>
 				<td>250$</td>
-			</tr>
-		</tbody>
-	</table>
-</section>
-
-<section>
-	<h1>Tasty Snacks</h1>
-	<p>If you don't like the taste of these, you still get the effect, but you're also Enraged.</p>
-	<table><colgroup><col class="col1"><col class="col2"><col class="col3"></colgroup>
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Description</th>
-				<th>Price</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Salty Surprise</td>
-				<td>When hit by an attack, gain 5 temporary HP. If you like Salty, gain 10 instead.</td>
-				<td>100$</td>
-			</tr>
-			<tr>
-				<td>Spicy Wrap</td>
-				<td>When making a Physical attack, deal +5 damage for that attack. If you like Spicy, deal +10 instead.</td>
-				<td>100$</td>
-			</tr>
-			<tr>
-				<td>Sour Candy</td>
-				<td>When hit by a Physical attack, gain +5 DR against that attack. If you like Sour, gain +10 instead.</td>
-				<td>100$</td>
-			</tr>
-			<tr>
-				<td>Dry Wafer</td>
-				<td>When making a Special attack, deal +5 damage for that attack. If you like Dry, deal +10 instead.</td>
-				<td>100$</td>
-			</tr>
-			<tr>
-				<td>Bitter Treat</td>
-				<td>When hit by a Special attack, gain +5 DR against that attack. If you like Sour, gain +10 instead.</td>
-				<td>100$</td>
-			</tr>
-			<tr>
-				<td>Sweet Confection</td>
-				<td>Use at any time to gain +4 Evasion until the end of your next turn. If you like Sweet, also gain +4 Accuracy.</td>
-				<td>100$</td>
-			</tr>
-		</tbody>
-	</table>
-</section>
-
-<section>
-	<h1>Tastes</h1>
-	<p>Gordon can add a Taste to any item he prepares. Tasty Snacks must have the same Taste as their basic flavor. As long as you don't dislike the Taste, you gain its effects alongside the main effect. It doesn't say, but I assume these effects last until the end of the Scene.</p>
-	<table><colgroup><col class="col1"><col class="col2"><col class="col3"></colgroup>
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Description</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Salty</td>
-				<td>Gain 5 temporary HP. This stacks with other Chef features and Digestion Buffs.</td>
-			</tr>
-			<tr>
-				<td>Spicy</td>
-				<td>Increase Critical Hit Range by +1.</td>
-			</tr>
-			<tr>
-				<td>Sour</td>
-				<td>Increase Evasion against damaging attacks by +1.</td>
-			</tr>
-			<tr>
-				<td>Dry</td>
-				<td>Increase Effect Range by +1.</td>
-			</tr>
-			<tr>
-				<td>Bitter</td>
-				<td>+1 bonus to all Save Checks.</td>
-			</tr>
-			<tr>
-				<td>Sweet</td>
-				<td>Increase Initiative by +5.</td>
-			</tr>
-		</tbody>
-	</table>
-	
-	<h2>Complex Aftertaste</h2>
-	<p>Whenever you use a Digestion Buff that had a Taste, Gordon can spend 1 AP to give you a new Digestion Buff that acts the same as a Tasty Snack of the same taste.</p>
-</section>
-
-<section>
-	<h1>Miscellaneous</h1>
-	<table><colgroup><col class="col1"><col class="col2"><col class="col3"></colgroup>
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Description</th>
-				<th>Price</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Candy Bar</td>
-				<td>Heals 5 HP <b>ZOWIE</b></td>
-				<td>50$</td>
-			</tr>
-			<tr>
-				<td>Baby Food</td>
-				<td>Increases a Pokemon's EXP gain by 20% for the day if they are level 15 or lower. Doesn't use Digestion Buffs, is consumed immediately.</td>
-				<td>50$</td>
-			</tr>
-			<tr>
-				<td>Preserves</td>
-				<td>Has the same effect as the ingredient used to make them. Produces 2 Preserves per Ingredient.</td>
-				<td>50$ and a Berry, Mushroom, or Herb</td>
-			</tr>
-			<tr>
-				<td>Hearty Meal</td>
-				<td>Up to 5 Trainers get +2 Max AP until the next Extended Rest. Doesn't stack, and loses potency if not consumed within 20 minutes.</td>
-				<td>2 Tiny Mushrooms, or a Big Mushroom, or a Balm Mushroom, or two of any White, Power, or Mental Herbs.</td>
-			</tr>
-			<tr>
-				<td>Dumplings</td>
-				<td>Dumplings has the same effect as the two items used to create it.</td>
-				<td>Either Leftovers, Preserves, or a Snack made with Chef, and then Leftovers or Preserves. The items must be different.</td>
 			</tr>
 		</tbody>
 	</table>
