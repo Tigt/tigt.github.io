@@ -17,3 +17,5 @@ https://en.m.wikipedia.org/wiki/Comparison_of_layout_engines_%28non-standard_HTM
 https://en.wikipedia.org/wiki/Comparison_of_layout_engines_%28non-standard_HTML%29
 
 Conditional comments
+
+`<link methods>` https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link

@@ -9,7 +9,11 @@ http://www.antipope.org/charlie/old/attic/webbook/ch2html/html-ch1h.html
 http://isi.edu/div3/helpdesk/html-dictionary/ext/index.HTM
 http://www.webreference.com/dev/html4nsie/prop.html
 
-[Check out this guy proposing rel=canonical back in 1994](http://1997.webhistory.org/www.lists/www-html.1994q4/0013.html)
+[Check out this guy proposing the equivalent of `rel=canonical` back in 1994](http://1997.webhistory.org/www.lists/www-html.1994q4/0013.html)
+
+### `<spacer>`
+
+https://hsivonen.fi/spacer/
 
 ### `<HYPE>`
 
@@ -83,3 +87,7 @@ The `nscp` prefix is almost certainly short for Netscape. Some desperate googlin
 `http://www.htmlcodetutorial.com/_MULTICOL.html`
 
 It took us a decade or so, but we've caught up with CSS3 Multicolumn Layout.
+
+## `<LINK REL=FONTDEF SRC="Electrik.pfr">`
+
+http://www.webdeveloper.com/html/html_dfonts_1.html
